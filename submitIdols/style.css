@@ -1,0 +1,39 @@
+.search
+{
+	margin-left: 25px;
+	width: 250px;
+	height: 20px;
+}
+.button_search
+{
+	height: 28px;
+	border-radius: 5px;
+}
+#result
+{
+	position: relative;
+	width: 500px;
+	float: left;
+}
+#result img
+{
+	width:100%;
+}
+#list_idol
+{
+	width: 250px;
+}
+#list_idol ul
+{
+	position: relative;
+	width: 250px;
+	float: left;
+}
+#list_idol >ul>li
+{
+	width: 100%;
+}
+.content
+{
+	margin-top: 50px;
+}

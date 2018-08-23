@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>idol</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<input id="search" class="search" type="text" placeholder="link anh" name="anh" onchange="change_anh()">
+	<input class="button_search" type="submit" value="Tim idol" onclick="search_idol()">
+	<div class="content">
+		<section id="list_idol">
+			<ul>
+				<li>Bà tưng</li>
+				<li>Hường Hana</li>
+				<li>Hoàng Thùy Linh</li>
+				<li>Elly Trần</li>
+				<li>Thuỷ Top</li>
+				<li>Tâm Tít</li>
+				<li>Midu</li>
+				<li>Miu Lê</li>
+				<li>Chi Pu</li>
+				<li>Khả Ngân</li>
+				<li>Angela Phương Trinh</li>
+			</ul>
+		</section>
+		<section id="result">
+			<img id="image" src="https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" alt="">
+			<h1 id="name">name</h1>
+	</section>
+	</div>
+	<script>
+		function change_anh()
+		{
+			var link = document.getElementById("search").value;
+			document.getElementById("image").src = link;
+		}
+
+		function search_idol()
+		{
+			var link = document.getElementById("search").value;
+			var name = document.getElementById("name");
+			var params = `link=${link}`;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function ()
+			{
+				if (this.readyState == 4 && this.status == 200)
+				{
+					name.innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("POST", "/idol", true);
+			xhttp.send(params);
+		}
+	</script>
+</body>
+</html>

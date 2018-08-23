@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-app="app" ng-controller="mainCtrl">
+	<div class="ui container">
+		<h1>Idol list</h1>
+		<div ng-repeat="idol in idols">
+			<h2>{{idol.id}}-{{idol.name}}</h2>
+			<div class="ui ten doubling cards" ng-cloak>
+				<div class="card" ng-repeat="image in idol.images">
+					<a target="_blank" ng-href="{{image.image}}">
+						<img ng-src="{{image.thumbnail}}">
+					</a>
+					<div class="content">
+						<button ng-click="removeImage(idol.images,$index)"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="ui icon primary button" ng-click="save()">Save Data</button>
+	</div>
+</body>
+</html>
